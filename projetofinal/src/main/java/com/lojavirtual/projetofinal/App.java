@@ -1,8 +1,7 @@
 package com.lojavirtual.projetofinal;
 
-import java.sql.Connection;
-
-import com.lojavirtual.projetofinal.connection.ConnectionFactory;
+import com.lojavirtual.projetofinal.dao.UsuarioDAO;
+import com.lojavirtual.projetofinal.model.Usuario;
 
 /**
  * Hello world!
@@ -10,12 +9,27 @@ import com.lojavirtual.projetofinal.connection.ConnectionFactory;
 public class App {
     public static void main(String[] args) throws Exception {
         
-    	ConnectionFactory connection = new ConnectionFactory();
-    	Connection con = connection.createConnectionMySql();
+    	// Testes de uso!
     	
-    	if(con != null) {
-    		System.out.println("Conexão obtida com sucesso!");
-    		con.close();
-    	}
+    	UsuarioDAO userDao = new UsuarioDAO();
+    	
+    	// Aqui adiciona um usuario
+    	//Usuario user = new Usuario("sabotado", "0987");
+    	//userDao.inserir(user);
+    	
+    	// Altera os dados
+    	//Usuario user = new Usuario("admin", "12345");
+    	//user.setId(1);
+    	
+    	//userDao.atualizar(user);
+    	
+    	
+    	// Deleta pelo id
+    	//userDao.deletar(2);
+    	
+    	// Buscar usuario pelo id
+    	
+    	//Usuario user = userDao.buscarPorId(1);
+    	//System.out.println(user.getId() + ". " + user.getUsuario() + " | " + user.getSenha());
     }
 }
