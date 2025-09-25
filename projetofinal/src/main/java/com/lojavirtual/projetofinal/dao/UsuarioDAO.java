@@ -17,9 +17,13 @@ public class UsuarioDAO {
 		
 		String sql = "INSERT INTO usuarios(nome, senha) VALUES (?, ?)";
 		
-		Connection conn = connection.createConnectionMySql();
-		PreparedStatement pstm = (PreparedStatement) conn.prepareStatement(sql);
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		
 		try {
+			
+			conn = connection.createConnectionMySql();
+			pstm = (PreparedStatement) conn.prepareStatement(sql);
 			
 			pstm.setString(1, usuario.getUsuario());
 			pstm.setString(2, usuario.getSenha());

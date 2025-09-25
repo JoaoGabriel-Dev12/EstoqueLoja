@@ -2,9 +2,12 @@ package com.lojavirtual.projetofinal.model;
 
 public class Fornecedor {
 	
+	private int id;
 	private String nome;
 	private String cnpj;
 	private String telefone;
+	
+	public Fornecedor() {}
 	
 	public Fornecedor(String nome, String cnpj, String telefone) {
 		this.nome = nome;
@@ -12,6 +15,14 @@ public class Fornecedor {
 		this.telefone = telefone;
 	}
 	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getNome() {
 		return this.nome;
 	}
@@ -32,7 +43,7 @@ public class Fornecedor {
 		return this.telefone;
 	}
 	
-	public void setTelefon(String telefone) {
+	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
 }
