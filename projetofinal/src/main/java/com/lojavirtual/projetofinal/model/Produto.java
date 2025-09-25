@@ -2,18 +2,31 @@ package com.lojavirtual.projetofinal.model;
 
 public class Produto {
 	
+	private int id;
 	private String nome;
 	private String codigo;
 	private double preco;
 	private int quantidade;
+	private int id_fornecedor;
 	
-	public Produto(String nome, String codigo, double preco, int quantidade) {
+	public Produto() {}
+	
+	public Produto(String nome, String codigo, double preco, int quantidade, int id_fornecedor) {
 		this.nome = nome;
 		this.codigo = codigo;
 		this.preco = preco;
 		this.quantidade = quantidade;
+		this.id_fornecedor = id_fornecedor;
 	}
 	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getNome() {
 		return this.nome;
 	}
@@ -45,4 +58,14 @@ public class Produto {
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
 	}
+
+	public int getId_fornecedor() {
+		return id_fornecedor;
+	}
+
+	public void setId_fornecedor(int id_fornecedor) {
+		this.id_fornecedor = id_fornecedor;
+	}
+	
+	
 }

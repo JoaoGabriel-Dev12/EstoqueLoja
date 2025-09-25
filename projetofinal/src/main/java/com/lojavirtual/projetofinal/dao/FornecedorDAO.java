@@ -12,7 +12,7 @@ import com.lojavirtual.projetofinal.model.Fornecedor;
 
 public class FornecedorDAO {
 	
-	ConnectionFactory connection = new ConnectionFactory();
+	private ConnectionFactory connection = new ConnectionFactory();
 	
 	public void inserir(Fornecedor fornecedor) throws SQLException {
 		
