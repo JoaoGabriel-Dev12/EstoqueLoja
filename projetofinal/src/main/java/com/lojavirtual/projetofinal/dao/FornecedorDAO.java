@@ -135,4 +135,61 @@ public class FornecedorDAO {
 		}
 		return fornecedor;
 	}
+	
+	public void atualizar(Fornecedor fornecedor) throws Exception {
+		
+		String sql = "UPDATE fornecedores SET nome = ?, cnpj = ?, telefone = ? WHERE id = ?";
+		
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		
+		try {
+			
+			conn = connection.createConnectionMySql();
+			pstm = (PreparedStatement) conn.prepareStatement(sql);
+			
+			pstm.setString(1, fornecedor.getNome());
+			pstm.setString(2, fornecedor.getCnpj());
+			pstm.setString(3, fornecedor.getTelefone());
+			
+			pstm.setInt(4, fornecedor.getId());
+			pstm.execute();
+		
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(pstm != null) {
+				pstm.close();
+			}
+			if(conn != null) {
+				conn.close();
+			}
+		}
+	}
+	
+	public void deletar(int id) throws Exception {
+		
+		String sql = "DELETE FROM fornecedores WHERE = ?";
+		
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		
+		try {
+			conn = connection.createConnectionMySql();
+			pstm = (PreparedStatement) conn.prepareStatement(sql);
+			
+			pstm.setInt(1, id);
+			pstm.execute();
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(pstm != null) {
+				pstm.close();
+			}
+			if(conn != null) {
+				conn.close();
+			}
+		}
+	}
 }

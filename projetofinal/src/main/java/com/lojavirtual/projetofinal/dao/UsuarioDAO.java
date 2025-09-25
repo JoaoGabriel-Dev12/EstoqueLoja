@@ -51,11 +51,16 @@ public class UsuarioDAO {
 		
 		List<Usuario> usuarios = new ArrayList<>();
 		
-		Connection conn = connection.createConnectionMySql();
-		PreparedStatement pstm = (PreparedStatement) conn.prepareStatement(sql);
-		ResultSet rset = pstm.executeQuery();
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		ResultSet rset = null;
 		
 		try {
+			
+			conn = connection.createConnectionMySql();
+			pstm = (PreparedStatement) conn.prepareStatement(sql);
+			rset = pstm.executeQuery();
+			
 			while(rset.next()) {
 				
 				Usuario usuario = new Usuario();
@@ -133,10 +138,14 @@ public class UsuarioDAO {
 		String sql = "UPDATE usuarios SET nome = ?, senha = ?" + 
 		"WHERE id = ?";
 		
-		Connection conn = connection.createConnectionMySql();
-		PreparedStatement pstm = (PreparedStatement) conn.prepareStatement(sql);
+		Connection conn = null;
+		PreparedStatement pstm = null;
 		
 		try {
+			
+			conn = connection.createConnectionMySql();
+			pstm = (PreparedStatement) conn.prepareStatement(sql);
+			
 			pstm.setString(1, usuario.getUsuario());
 			pstm.setString(2, usuario.getSenha());
 			
@@ -162,10 +171,13 @@ public class UsuarioDAO {
 		
 		String sql = "DELETE FROM usuarios WHERE id = ?";
 		
-		Connection conn = connection.createConnectionMySql();
-		PreparedStatement pstm = (PreparedStatement) conn.prepareStatement(sql);
+		Connection conn = null;
+		PreparedStatement pstm = null;
 		
 		try {
+			
+			conn = connection.createConnectionMySql();
+			pstm = (PreparedStatement) conn.prepareStatement(sql);
 			
 			pstm.setInt(1, id);
 			pstm.execute();
