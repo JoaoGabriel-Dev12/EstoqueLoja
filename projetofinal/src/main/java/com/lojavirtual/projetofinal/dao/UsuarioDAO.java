@@ -3,6 +3,7 @@ package com.lojavirtual.projetofinal.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,9 +12,9 @@ import com.lojavirtual.projetofinal.model.Usuario;
 
 public class UsuarioDAO {
 		
-	ConnectionFactory connection = new ConnectionFactory();
+	private ConnectionFactory connection = new ConnectionFactory();
 	
-	public void inserir(Usuario usuario) throws Exception {
+	public void inserir(Usuario usuario) throws SQLException {
 		
 		String sql = "INSERT INTO usuarios(nome, senha) VALUES (?, ?)";
 		
@@ -45,7 +46,7 @@ public class UsuarioDAO {
 		}
 	}
 	
-	public List<Usuario> listar() throws Exception {
+	public List<Usuario> listar() throws SQLException {
 		
 		String sql = "SELECT * FROM usuarios";
 		
@@ -88,7 +89,7 @@ public class UsuarioDAO {
 		return usuarios;
 	}
 	
-	public Usuario buscarPorId(int id) throws Exception {
+	public Usuario buscarPorId(int id) throws SQLException {
 		
 		String sql = "SELECT * FROM usuarios WHERE id = ?";
 		Usuario usuario = new Usuario();
@@ -133,7 +134,7 @@ public class UsuarioDAO {
 		
 	}
 	
-	public void atualizar(Usuario usuario) throws Exception {
+	public void atualizar(Usuario usuario) throws SQLException {
 		
 		String sql = "UPDATE usuarios SET nome = ?, senha = ?" + 
 		"WHERE id = ?";
@@ -167,7 +168,7 @@ public class UsuarioDAO {
 		
 	}
 	
-	public void deletar(int id) throws Exception {
+	public void deletar(int id) throws SQLException {
 		
 		String sql = "DELETE FROM usuarios WHERE id = ?";
 		

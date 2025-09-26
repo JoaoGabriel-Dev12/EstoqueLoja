@@ -136,7 +136,7 @@ public class FornecedorDAO {
 		return fornecedor;
 	}
 	
-	public void atualizar(Fornecedor fornecedor) throws Exception {
+	public void atualizar(Fornecedor fornecedor) throws SQLException {
 		
 		String sql = "UPDATE fornecedores SET nome = ?, cnpj = ?, telefone = ? WHERE id = ?";
 		
@@ -167,9 +167,9 @@ public class FornecedorDAO {
 		}
 	}
 	
-	public void deletar(int id) throws Exception {
+	public void deletar(int id) throws SQLException {
 		
-		String sql = "DELETE FROM fornecedores WHERE = ?";
+		String sql = "DELETE FROM fornecedores WHERE id = ?";
 		
 		Connection conn = null;
 		PreparedStatement pstm = null;
